@@ -1,25 +1,20 @@
-from flask import Flask
-
-# print a nice greeting.
-def say_hello(username = "World"):
-    return '<p>Hello %s!</p>\n' % username
-
-# some bits of text for the page.
-header_text = '''
-    <html>\n<head> <title>EB Flask Test</title> </head>\n<body>'''
-instructions = '''
-    <p><em>Hint</em>: This is a RESTful web service! Append a username
-    to the URL (for example: <code>/Thelonious</code>) to say hello to
-    someone specific.</p>\n'''
-home_link = '<p><a href="/">Back</a></p>\n'
-footer_text = '</body>\n</html>'
-
+from flask import Flask, request, send_from_directory
+import numpy as np
 # EB looks for an 'application' callable by default.
 application = Flask(__name__)
 
 @application.route('/')
-def hello_world():
-    return header_text + say_hello() + instructions + footer_text
+def index():
+    with open('index.html', 'r') as f:
+        return f.read()
+
+@application.route('/chartExample')
+def handle_chart_example():
+    slope = float(request.args.get('slope'))
+    values = np.arange(20) * slope
+    return {
+        "values" : list(values)
+    }
 
 # run the app.
 if __name__ == "__main__":
