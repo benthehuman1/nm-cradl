@@ -99,15 +99,14 @@ const chartComponentTemplate = `
         <div class="column is-6 charttest">
             <div class="card">
                 <div class="card-content">
-                    <div class="content has-text-centered">
-                    </div>
                         <div class="content has-text-centered">
                             <button class="button" @click="showValueOverTime()">Value Over Time</button>
                             <button class="button" @click="showValueBreakdown()">Value Breakdown</button>
                         </div>
-                        <reactive v-if="this.showingValueOverTime" :chart-data="datacollection"></reactive>
+                        <reactive v-if="showingValueOverTime" :chart-data="datacollection"></reactive>
                         <fake-pie v-else></fake-pie>
                         <button class="button " @click="fillData()">Generate Graph</button>
+                        <input v-if="!showingValueOverTime" type="number" v-model="pieChartYear">
                     </div>
                 </div>
             </div>
@@ -121,6 +120,7 @@ const chartComponentOptions = {
     data() {
         return {
             showingValueOverTime: true,
+            pieChartYear: 0,
             datacollection: null,
             principal: 10000,
             interest_rate: 9,
@@ -245,6 +245,15 @@ const chartComponentOptions = {
         }
     },
     computed: {
+        usedPieChartYearIndex: function(){
+            if(this.pieChartYear < 0){
+                return 0;
+            }
+            else if (this.pieChartYear >= this.time_invested) {
+                return this.time_invested - 1;
+            }
+            return this.pieChartYear;
+        },
         total_pay_periods: function() {
             // calculate total number of pay periods
             return parseFloat(this.additional_investment_frequency) * parseFloat(this.time_invested);
