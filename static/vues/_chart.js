@@ -4,18 +4,6 @@ const chartComponentTemplate = `
         <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
                 <article class="tile is-child box">
-                    <p class="title">{{principal}}</p>
-                    <p class="subtitle">Initial Deposit</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">{{total_additional_investment}}</p>
-                    <p class="subtitle">Total Additional Deposit</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
                     <p class="title">{{total_interest}}</p>
                     <p class="subtitle">Total Interest</p>
                 </article>
@@ -28,8 +16,18 @@ const chartComponentTemplate = `
             </div>
         </div>
     </section>
-    <div class="columns">
-        <div class="column is-6">
+    <div>
+        <div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="content has-text-centered">
+                        <reactive :chart-data="datacollection"></reactive>
+                        <button class="button " @click="fillData()">Generate Graph</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
             <div class="card events-card" style="height:100%">
                 <header class="card-header">
                     <p class="card-header-title">
@@ -92,16 +90,6 @@ const chartComponentTemplate = `
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column is-6 charttest">
-            <div class="card">
-                <div class="card-content">
-                    <div class="content has-text-centered">
-                        <reactive :chart-data="datacollection"></reactive>
-                        <button class="button " @click="fillData()">Generate Graph</button>
                     </div>
                 </div>
             </div>
@@ -273,3 +261,4 @@ const chartComponentOptions = {
         }
     }
 }
+

@@ -8,15 +8,10 @@ def index():
     with open('index.html', 'r') as f:
         return f.read()
 
-@application.route('/chartExample')
-def handle_chart_example():
-    print("i'm calling chartExample")
-    slope = float(request.args.get('slope'))
-    values = np.arange(20) * slope
-    print(values)
-    return {
-        "values" : list(values)
-    }
+@application.route('/compare')
+def index2():
+    with open('compare.html', 'r') as f:
+        return f.read()
 
 # run the app.
 if __name__ == "__main__":
