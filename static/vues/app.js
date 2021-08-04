@@ -1,17 +1,13 @@
 const appComponentTemplate = `
 <div>
-    <section class="hero is-info welcome is-small" style="border-radius: 6px 6px 0px 0px;">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Welcome to Cradl
-                </h1>
-                <h2 class="subtitle">
-                    See the magic of compounding interest!
-                </h2>
-            </div>
-        </div>
-    </section>
+    <div>
+        <img src="/static/assets/cradl_logo.png" alt="Cradl logo" style="width: 161px; height: 65px;">
+    </div>
+    <div class="topnav">
+        <a class="active" href="https://laurenbrown1886.wixsite.com/website">Home</a>
+        <a href="/">Explore Plans</a>
+        <a href="/compare">Compare Plans</a>
+    </div>
     <chart/>
 </div>
 `;
