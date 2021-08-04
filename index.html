@@ -6,20 +6,31 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Compound Interest Calculator*</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <!-- https://vue-chartjs.org/guide/#npm -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs@3.4.0/dist/vue-chartjs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <meta charset="UTF-8">
     <title>NM-Cradl</title>
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<script src="https://unpkg.com/vue@next"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
-        const isLocal = true;
+        const isLocal = false;
         if(isLocal){
             window.baseEndpoint = 'http://127.0.0.1:5000'
         } else {
             window.baseEndpoint = 'http://nmcradl-env.eba-frypaejh.us-east-2.elasticbeanstalk.com'
         }
     </script>
+    <script src="static/vues/reactive.js"></script>
     <script src="static/vues/chart.js"></script>
     <script src="static/vues/app.js"></script>
     <script src="static/index.js"></script>

@@ -6,10 +6,17 @@ $(document).ready(function() {
           }
         }
     }
-    const app = Vue.createApp(RootComponent);
+    // const app = Vue.createApp(RootComponent);
+    Vue.component('reactive', reactiveComponentOptions);
+    Vue.component('chart', chartComponentOptions);
+    Vue.component('app', appComponentOptions);
+    
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+    
 
-    app.component('chart', chartComponentOptions);
-    app.component('app', appComponentOptions);
-
-    const vm = app.mount('#app');
 });
