@@ -1,6 +1,6 @@
 const appComponentTemplate = `
     <div id="appComponent">
-        hmmmm?
+        welcome to cradl?
         <chart/>
     </div>
 `;

@@ -10,8 +10,10 @@ def index():
 
 @application.route('/chartExample')
 def handle_chart_example():
+    print("i'm calling chartExample")
     slope = float(request.args.get('slope'))
     values = np.arange(20) * slope
+    print(values)
     return {
         "values" : list(values)
     }
