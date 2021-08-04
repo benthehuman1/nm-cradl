@@ -100,7 +100,13 @@ const chartComponentTemplate = `
             <div class="card">
                 <div class="card-content">
                     <div class="content has-text-centered">
-                        <reactive :chart-data="datacollection"></reactive>
+                    </div>
+                        <div class="content has-text-centered">
+                            <button class="button" @click="showValueOverTime()">Value Over Time</button>
+                            <button class="button" @click="showValueBreakdown()">Value Breakdown</button>
+                        </div>
+                        <reactive v-if="this.showingValueOverTime" :chart-data="datacollection"></reactive>
+                        <fake-pie v-else></fake-pie>
                         <button class="button " @click="fillData()">Generate Graph</button>
                     </div>
                 </div>
@@ -114,6 +120,7 @@ const chartComponentOptions = {
     template: chartComponentTemplate,
     data() {
         return {
+            showingValueOverTime: true,
             datacollection: null,
             principal: 10000,
             interest_rate: 9,
@@ -142,6 +149,12 @@ const chartComponentOptions = {
         this.fillData()
     },
     methods: {
+        showValueOverTime() {
+            this.showingValueOverTime = true;
+        },
+        showValueBreakdown() {
+            this.showingValueOverTime = false;
+        },
         fillData() {
             //create col for each year invested
             cols = [];

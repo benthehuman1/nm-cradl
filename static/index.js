@@ -7,10 +7,11 @@ $(document).ready(function() {
         }
     }
     // const app = Vue.createApp(RootComponent);
+    Vue.component('fake-pie', fakePieComponentOptions);
     Vue.component('reactive', reactiveComponentOptions);
     Vue.component('chart', chartComponentOptions);
     Vue.component('app', appComponentOptions);
-    
+
     var app = new Vue({
       el: '#app',
       data: {
