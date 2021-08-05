@@ -1,7 +1,7 @@
 const appComponentTemplate = `
     <div id="appComponent">
-        <div>
-        <img src="/static/assets/cradl_logo.png" alt="Cradl logo" style="width: 161px; height: 65px;">
+    <div class="logo">
+        <img src="/static/assets/cradl_logo.webp" alt="Cradl logo" style="width: 161px; height: 65px;">
     </div>
     <div class="topnav">
         <a class="active" href="https://laurenbrown1886.wixsite.com/website">Home</a>
