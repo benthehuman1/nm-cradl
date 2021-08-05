@@ -104,7 +104,7 @@ const chartComponentTemplate = `
                             <button class="button" @click="showValueBreakdown()">Value Breakdown</button>
                         </div>
                         <reactive v-if="showingValueOverTime" :chart-data="datacollection"></reactive>
-                        <fake-pie v-else></fake-pie>
+                        <fake-pie v-else :pieChartData="pieChartData"></fake-pie>
                         <button class="button " @click="fillData()">Generate Graph</button>
                         <input v-if="!showingValueOverTime" type="number" v-model="pieChartYear">
                     </div>
@@ -253,6 +253,17 @@ const chartComponentOptions = {
                 return this.time_invested - 1;
             }
             return this.pieChartYear;
+        },
+        pieChartData: function(){
+            var principalList = this.datacollection.datasets[0].data;
+            var additionalList = this.datacollection.datasets[1].data;
+            var accruedList = this.datacollection.datasets[2].data;
+
+            console.log(this.usedPieChartYearIndex);
+            console.log(principalList);
+
+            return [principalList[this.usedPieChartYearIndex], additionalList[this.usedPieChartYearIndex], accruedList[this.usedPieChartYearIndex]];
+
         },
         total_pay_periods: function() {
             // calculate total number of pay periods
