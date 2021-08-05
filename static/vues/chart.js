@@ -84,10 +84,7 @@ const chartComponentTemplate = `
                                 </tr>
                                 <tr>
                                     <td colspan="2" style="width:100%">
-                                        <p class="is-italic" style="font-size:0.6em">
-                                            <strong>NM Hackathon 2021:</strong>
-                                            Maybe put team member names here?
-                                        </p>
+                                        
                                     </td>
                                 </tr>
                             </tbody>
@@ -106,7 +103,7 @@ const chartComponentTemplate = `
                         <reactive v-if="showingValueOverTime" :chart-data="datacollection"></reactive>
                         <fake-pie v-else :pieChartData="pieChartData"></fake-pie>
                         <button class="button " @click="fillData()">Generate Graph</button>
-                        <input v-if="!showingValueOverTime" type="number" v-model="pieChartYear">
+                        <input v-if="!showingValueOverTime" type="number" v-model="pieChartYear" style="visibility: hidden;">
                     </div>
                 </div>
             </div>
@@ -122,10 +119,10 @@ const chartComponentOptions = {
             showingValueOverTime: true,
             pieChartYear: 0,
             datacollection: null,
-            principal: 10000,
+            principal: 1000,
             interest_rate: 9,
             time_invested: 5,
-            additional_investment: 5000,
+            additional_investment: 500,
             additional_investment_frequency: 1,
             options: {
                 additional_investment_frequency: {
@@ -252,7 +249,7 @@ const chartComponentOptions = {
             else if (this.pieChartYear >= this.time_invested) {
                 return this.time_invested - 1;
             }
-            return this.pieChartYear;
+            return (this.time_invested - 1);
         },
         pieChartData: function(){
             var principalList = this.datacollection.datasets[0].data;
