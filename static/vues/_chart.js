@@ -107,7 +107,7 @@ const chartComponentOptions = {
             pieChartYear: 0,
             datacollection: null,
             principal: 1000,
-            interest_rate: 9,
+            interest_rate: 5,
             time_invested: 5,
             additional_investment: 500,
             additional_investment_frequency: 1,
