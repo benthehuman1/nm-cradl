@@ -7,6 +7,10 @@ const appComponentTemplate = `
         <a class="active" href="https://laurenbrown1886.wixsite.com/website">Home</a>
         <a href="/">Explore Plans</a>
         <a href="/compare">Compare Plans</a>
+        <a href="/">About</a>
+        <a href="/compare">Information</a>
+        <a href="/">Why Choose Us?</a>
+        <a href="/compare">Contact</a>
     </div>
     <chart/>
 </div>
